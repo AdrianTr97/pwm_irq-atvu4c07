@@ -17,7 +17,7 @@ const uint16_t ANGLE_90 = 1837;  // Passo 3: 90° → 1470µs
 const uint16_t ANGLE_180 = 3000; // Passo 2: 180° → 2400µs
 const uint16_t ANGLE_STEP = (5 * PWM_MAX / 20000); // Passo 5: Incremento de 5µs
 
-/* */
+/* funcao wraphandler a ficar desativada depois para teste*/
 // Tratamento da interrupção do PWM para LED
 void wrapHandler(){ 
     static int fade = 0; //nível de iluminação
@@ -41,7 +41,7 @@ void wrapHandler(){
 
     pwm_set_gpio_level(LEDPin, fade * fade); //define o ciclo ativo (Ton) de forma quadrática, para acentuar a variação de luminosidade.
 }
-
+/* funcao pwm_setup_irq a ficar desativada depois para teste*/
 //Configuração do PWM
 uint pwm_setup_irq(){
     gpio_set_function(LEDPin, GPIO_FUNC_PWM); //habilitar o pino GPIO como PWM
