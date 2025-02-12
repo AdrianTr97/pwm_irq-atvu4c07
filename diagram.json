@@ -1,16 +1,16 @@
 {
-    "version": 1,
-    "author": "Adrian Trajano de Almeida da Silva",
-    "editor": "wokwi",
-    "parts": [
-      {
-        "type": "board-pi-pico-w",
-        "id": "pico",
-        "top": -60.85,
-        "left": -236.45,
-        "attrs": { "builder": "pico-sdk" }
-      },
-      {
+  "version": 1,
+  "author": "Adrian T. de A. da S.",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-pi-pico-w",
+      "id": "pico",
+      "top": -22.45,
+      "left": -188.45,
+      "attrs": { "builder": "pico-sdk" }
+    },
+    {
         "type": "wokwi-resistor",
         "id": "r1",
         "top": 72,
@@ -24,14 +24,18 @@
         "top": -22.8,
         "left": -274.6,
         "attrs": { "color": "blue" }
-      }
-    ],
-    "connections": [
-      [ "pico:GP0", "$serialMonitor:RX", "", [] ],
-      [ "pico:GP1", "$serialMonitor:TX", "", [] ],
-      [ "pico:GND.4", "r1:2", "black", [ "h0" ] ],
-      [ "pico:GP12", "led1:A", "green", [ "h0" ] ],
-      [ "led1:C", "r1:1", "green", [ "v0" ] ]
-    ],
-    "dependencies": {}
-  }
+      },
+    { "type": "wokwi-servo", "id": "servo1", "top": -40.4, "left": -9.6, "attrs": {} }
+  ],
+  "connections": [
+    [ "pico:GP0", "$serialMonitor:RX", "", [] ],
+    [ "pico:GP1", "$serialMonitor:TX", "", [] ],
+    [ "servo1:GND", "pico:GND.8", "black", [ "h0" ] ],
+    [ "servo1:V+", "pico:3V3", "red", [ "h0" ] ],
+    [ "servo1:PWM", "pico:GP22", "orange", [ "h0" ] ],
+    [ "pico:GND.4", "r1:2", "black", [ "h0" ] ],
+    [ "pico:GP12", "led1:A", "green", [ "h0" ] ],
+    [ "led1:C", "r1:1", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
